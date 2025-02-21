@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (password_verify($password, $user['password'])) {
                     echo 'OK - password verify';
 
-
                     if ($user['is_block'] == '1') {
                         header("Location: block.php");
                         exit;
@@ -61,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     exit;
                 } else {
                     echo "Invalid password";
-                    header("Location: login.php");
+                       header("Location: login.php");
                     exit;
                 }
             } else {

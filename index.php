@@ -4,8 +4,6 @@ include_once "connect.php";
 include_once "user/auth.php";
 
 
-$access = 1;
-
 ?>
 <?php $title = 'Список остатков';
 include_once "templates/header.php";
@@ -13,7 +11,6 @@ include_once "templates/menu.php";
 ?>
 
 
-<?php if ($access==1) { ?>
     <h2 class="title">Остатки <?php echo $shopName; ?></h2>
 <br><label for="brandSearch">Поиск по бренду:</label>
 <input type="text" id="brandSearch" onkeyup="filterTable()">
@@ -107,9 +104,6 @@ include_once "templates/menu.php";
     }
 </script>
 
-<?php } else {
-    echo "Доступ запрещен";
-}?>
 
 <?php include_once "templates/footer.php"; ?>
 

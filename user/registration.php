@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($_POST['password']!==$_POST['confirm_password']) {
             $errors += ['password' => 'Поля Пароль и Подтверждение пароля не совпадают.'];
         } else {
+            $password = $_POST['password'];
             minCharacters('password', 6);
             maxCharacters('password', 20);
         }
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors += ['username' => 'Такой логин уже существует.'];
         } else {
             $newpassword = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users (login, firsname, lastname, email, password, is_admin, is_hr, is_block) VALUES ('$username', '$_POST[firstname]', '$_POST[lastname]', '$email', '$newpassword', '0', '0', '1')";
+            $sql = "INSERT INTO users (login, firsname, lastname, email, password, is_admin, is_hr, is_block) VALUES ('$username', '$_POST[firstname]', '$_POST[lastname]', '$email', '$newpassword', '0', '0', '0')";
             $mysqli->query($sql);
             header("Location: login.php");
             exit;
